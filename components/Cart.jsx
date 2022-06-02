@@ -29,9 +29,10 @@ const Cart = () => {
     }
     const data = await response.json();
 
-    toast.loading('Redirecting...');
+    // toast.loading('Redirecting...');
+    toast.success("You buy something")
 
-    stripe.redirectCheckout({ sessionId: data.id });
+    // stripe.redirectCheckout({ sessionId: data.id });
   }
 
   return (
@@ -59,7 +60,6 @@ const Cart = () => {
         )}
         <div className='product-container'>
           {cartItems.length >= 1 && cartItems.map((item, index) => {
-            console.log(item.quantity)
             return (
               <div className='product' key={item._id}>
                 <img src={urlFor(item?.image[0])} alt="product" className='cart-product-image' />
